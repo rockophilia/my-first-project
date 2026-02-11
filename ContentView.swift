@@ -21,7 +21,7 @@ struct ContentView: View {
 
     private var header: some View {
         VStack(spacing: 6) {
-            Text("PONG '77")
+            Text("WITHOUT A PADDLE")
                 .font(.system(size: 30, weight: .black, design: .monospaced))
                 .foregroundStyle(.green)
 

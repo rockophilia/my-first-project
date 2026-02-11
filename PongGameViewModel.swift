@@ -11,7 +11,7 @@ final class PongGameViewModel: ObservableObject {
     @Published var level = 1
     @Published var playerOneScore = 0
     @Published var playerTwoScore = 0
-    @Published var statusText = "First to 9 points wins. Beat CPU 9-0 to level up."
+    @Published var statusText = "First to 9 points wins. Beat your opponent to level up."
 
     @Published var ballPosition: CGPoint = .zero
     @Published var playerOneX: CGFloat = 0
@@ -54,7 +54,7 @@ final class PongGameViewModel: ObservableObject {
         playerTwoScore = 0
         level = keepLevel ? level : 1
         waitingForServe = true
-        statusText = "First to 9 points wins. Beat CPU 9-0 to level up."
+        statusText = "First to 9 points wins. Beat your opponent to level up."
 
         playerOneX = sceneSize.width / 2
         playerTwoX = sceneSize.width / 2
@@ -77,7 +77,7 @@ final class PongGameViewModel: ObservableObject {
         }
 
         statusText = mode == .singlePlayer
-            ? "Beat CPU 9-0 to reach level \(level + 1)!"
+            ? "Win this race to 9 to reach level \(level + 1)!"
             : "Two-player mode: race to 9 points."
     }
 
@@ -209,13 +209,10 @@ final class PongGameViewModel: ObservableObject {
 
     private func finalizeGame() {
         if mode == .singlePlayer {
-            if playerOneScore == 9 && playerTwoScore == 0 {
+            if playerOneScore == 9 {
                 level += 1
-                statusText = "Perfect shutout! Welcome to level \(level): faster ball, smaller paddles."
+                statusText = "You won! Welcome to level \(level): faster ball, smaller paddles."
                 resetForNextLevel()
-            } else if playerOneScore == 9 {
-                statusText = "You won, but not 9-0. Replay to level up."
-                resetScoresOnly()
             } else {
                 statusText = "CPU wins. Try again from level \(level)."
                 resetScoresOnly()
