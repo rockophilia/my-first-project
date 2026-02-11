@@ -1,4 +1,4 @@
-# Pong '77 iPhone App (SwiftUI)
+# Without A Paddle iPhone App (SwiftUI)
 
 This repository now contains a playable Pong clone for iPhone written in SwiftUI.
 
@@ -8,7 +8,7 @@ This repository now contains a playable Pong clone for iPhone written in SwiftUI
 - **Two-player mode** where each player controls one paddle with touch input.
 - **Finger controls**: drag in the **bottom half** to move Player 1, and drag in the **top half** to move Player 2 in two-player mode.
 - **Level progression** in single-player:
-  - Win **9-0** against the CPU to advance.
+  - Be the **first to 9 points** against the CPU to advance.
   - Each new level makes paddles shorter and ball speed faster.
 - Retro-inspired score and status HUD.
 
